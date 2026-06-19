@@ -1,0 +1,276 @@
+:root{
+
+    --generalBorder: 4px solid rgba(255, 255, 255, 0.041);
+    --pillBg: rgba(252, 252, 255, 0.068);
+
+}
+    
+
+body{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+
+
+    user-select: none;
+    scroll-behavior: smooth;
+
+    overflow-x: hidden;
+    
+
+}
+.header{
+    padding-left: 20px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+
+
+    position: fixed; 
+    top: 0;
+    left: 0;
+    
+
+    width: 100vw; 
+    height: 6vh; 
+    
+    z-index: 1000; 
+
+    border: var(--generalBorder);
+    background-color: var(--headerBg); 
+    backdrop-filter: blur(8px);
+
+
+    font-size: 2.5rem;
+    color: var(--headerColor);
+    box-shadow: 10px 25px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.header span{
+    margin-left: 10%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+
+    background-image: var(--openBg);
+    background-size: 100%;
+    background-position: bottom;
+    backdrop-filter: brightness(50%);
+
+
+}
+.Me{
+        backdrop-filter: blur(8px);
+        background-color: rgba(0, 0, 0, 0.232);
+        border: var(--generalBorder);
+        border-radius: 24px;
+        text-align: center;
+        padding: 10px;
+}
+#name{
+    font-size: 5rem;
+    color: var(--nameColor)
+
+}
+#titles{
+    font-size: 2rem;
+    color: var(--titlesColor);
+
+}
+
+.content{
+    width: 100vw;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100vh;
+
+    background-image: linear-gradient(to bottom, #735d37 0%, rgba(160, 133, 91, 0) 20%), var(--contentBg);
+
+
+    background-size: cover;
+    background-repeat: repeat-x;
+
+
+
+}
+
+
+.subSection{
+
+    font-size: 3.5rem;
+    color: var(--nameColor);
+
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+
+    margin: auto;
+    width: 25%;
+    padding: 20px;
+    margin-bottom: 5%;
+    margin-top:5%;
+
+
+    border: var(--generalBorder);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.232);
+    border-radius: 24px;
+    
+
+}
+
+.studies{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+.contentRight{
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+
+    font-size: 2rem;
+    color: var(--titlesColor);
+    text-align: center;
+
+}
+
+.description{
+    width: 50%;
+    height: 100%;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.descriptionContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+
+    padding: 20px;
+    width: 70%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.232);
+    border-radius: 24px;
+    border: var(--generalBorder);
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+    
+}
+
+
+.description div{
+
+    text-align: center;
+    padding-bottom: 20px;
+}
+.description div:nth-last-child(1){
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+
+
+    width: 50%;
+    height: 100%;
+}
+
+.image{
+    
+    width: 70%;
+    height: auto;
+    border-radius: 12px;
+    margin:auto;
+
+    border: var(--generalBorder);
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.school{
+    color: var(--nameColor);
+}
+
+
+.subjects span{
+    display: inline-block;
+    
+    border: var(--generalBorder);
+    border-radius: 24px;
+
+
+    padding: 5px 20px;
+    margin-bottom:10px;
+
+
+    background-color: var(--pillBg);
+    font-size: 1.5rem;
+    color: var(--pillTextColor);
+}
+
+
+section{
+
+    margin-bottom:20vh;
+
+}
+
+.descriptText{
+    font-size: 1.5rem;
+    text-align: justify;
+
+}
+
+/*Fonts*/
+.alatsi-regular {
+  font-family: "Alatsi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
