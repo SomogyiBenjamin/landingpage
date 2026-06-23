@@ -1,6 +1,6 @@
 :root{
     --openBg: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/summerOne.gif);
-    --contentBg: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/sandy.png);
+    --contentBg: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/sandy2.png);
 
 
     --headerBg: rgba(11, 236, 195, 0.229);

@@ -10,6 +10,7 @@ html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -20,30 +21,34 @@ body{
     width: 100%;
 
     user-select: none;
-    scroll-behavior: smooth;
+
 
     overflow-x: hidden;
     
 
 }
 .header{
-    padding-left: 20px;
+
+    display: flex;
+    gap: 50px;
     align-content: center;
     align-items: center;
     text-align: center;
+    justify-content: center;
 
 
     position: fixed; 
-    top: 0;
-    left: 0;
+    top: 1%;
+    left: 25vw;
     
 
-    width: 100vw; 
+    width: 50vw; 
     height: 6vh; 
     
     z-index: 1000; 
 
     border: var(--generalBorder);
+    border-radius: 12px;
     background-color: var(--headerBg); 
     backdrop-filter: blur(8px);
 
@@ -53,9 +58,47 @@ body{
     box-shadow: 10px 25px 20px rgba(0, 0, 0, 0.15);
 
 }
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.header span{
-    margin-left: 10%;
+a:visited{
+  color: inherit;
+}
+
+a:hover,
+a:active,
+a:focus{
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+.header span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.headerIcon{
+  height: 15%;
+  width: 15%;
+  filter: invert(1) brightness(1.2) saturate(1.3);
+  color: var(--headerColor);
+}
+
+.headerSub{
+
+  font-size: 1.4rem;
+
 }
 
 .container{
@@ -68,7 +111,7 @@ body{
 
 
     background-image: var(--openBg);
-    background-size: 100%;
+    background-size: cover;
     background-position: bottom;
     backdrop-filter: brightness(50%);
 
@@ -102,11 +145,11 @@ body{
     align-items: stretch;
     min-height: 100vh;
 
-    background-image: linear-gradient(to bottom, #735d37 0%, rgba(160, 133, 91, 0) 20%), var(--contentBg);
+    background-image: linear-gradient(to bottom, #64563695 0%, rgba(160, 133, 91, 0) 20%), var(--contentBg);
 
 
-    background-size: cover;
-    background-repeat: repeat-x;
+    background-size: auto;
+    background-repeat: repeat-y;
 
 
 
@@ -526,16 +569,13 @@ section{
 .carousel_image{
     border: var(--generalBorder);
     border-radius: 12px;
-    max-height: 100%;
+    max-height: 80%;
     max-width: 100%;
     object-fit: contain;
     margin: auto;
 }
 
-#malom{
-    width: 80%;
-    max-height: 80%;
-}
+
 
 .carousel-container {
     display: flex;
@@ -546,7 +586,6 @@ section{
     border: var(--generalBorder);
     border-radius: 24px;
     padding: 0px;
-
     width: 73%;
     box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
 }
