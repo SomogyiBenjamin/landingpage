@@ -18,8 +18,6 @@
 
     <!-- Google Fonts -->
 
-
-    <script src="scripts/script.js"></script>
 </head>
 <body class="alatsi-regular">
     <div class="header alatsi-regular">
@@ -133,7 +131,7 @@
 
                         <div class="school">Tic-Tac-Toe — Wordle — Szókereső</div>
                         <div>2022</div>
-                        <div class="descriptText">Első iskolai projektjeim egyike. Egy egyszerű szoftver, amely három különböző játéktípust tartalmaz. </div>
+                        <div class="descriptText">Első iskolai projektjeim egyike. Egy egyszerű szoftver, amely három különböző játéktípust tartalmaz. Natívan a parancssorban futó alkalmazás.</div>
                         <div class="subjects">
 
                             <span>C#</span>
@@ -156,7 +154,7 @@
 
                         <div class="school">Malom</div>
                         <div>2023</div>
-                        <div class="descriptText">Harmad éves iskolai projektjeim egyike. A népszerű klasszikus táblajáték digitalizált megvalósítása.</div>
+                        <div class="descriptText">Harmad éves iskolai projektjeim egyike. A népszerű klasszikus táblajáték digitalizált megvalósítása. Natív windows grafikus alkalmazás.</div>
                         <div class="subjects">
 
                             <span>C#</span>
@@ -412,10 +410,61 @@
 
             <section name="kapcsolat" class="contact" id="Kapcsolat">
                 <div class="subSection alatsi-regular">Kapcsolat</div>
+                <div class="contactContainer">
+                    <div id="contactText">Vedd fel velem a kapcsolatot E-mailben</div>
+                    <form id="contactForm" class="alatsi-regular">
+                        <input type="email" id="email" class="alatsi-regular" placeholder="Add meg az E-mail címed" required autocomplete="off">
+                        <textarea id="message" class="alatsi-regular" placeholder="Ide írd az üzeneted" required></textarea>
+                        <button type="submit" class="alatsi-regular"> <img src="./images/submit.png" alt="" class="headerIcon">Küldés</button>
 
+                    </form>
+                    <div id="status"></div>
+                </div>
+                
+                <div id="thankYouModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="modalTitle">Köszönöm!</h2>
+                        <p id="modalMessage">Az üzeneted sikeresen elküldted. Hamarosan kapcsolatba lépek veled.</p>
+                    </div>
+                </div>
 
+                <div id="imageModal" class="modal">
+                    <div class="modal-content image-modal-content">
+                        <span class="close">&times;</span>
+                        <div class="carousel-container">
+                            <ul class="carousel my-carousel carousel--scale" id="modalCarousel">
+                                <input class="carousel__activator" type="radio" id="MP" name="carouselModal" checked="checked"/>
+                                <input class="carousel__activator" type="radio" id="MQ" name="carouselModal"/>
+                                <input class="carousel__activator" type="radio" id="MR" name="carouselModal"/>
+                                <input class="carousel__activator" type="radio" id="MS" name="carouselModal"/>
+
+                                <li class="carousel__slide">
+                                    <img src="./images/tws.png" alt="Projekt logó" class="carousel_image">
+                                </li>
+                                <li class="carousel__slide">
+                                    <img src="./images/tictactoe.png" alt="tic-tac-toe játék" class="carousel_image">
+                                </li>
+                                <li class="carousel__slide">
+                                    <img src="./images/wordle.png" alt="wordle játék" class="carousel_image">
+                                </li>
+                                <li class="carousel__slide">
+                                    <img src="./images/szokereso.png" alt="szókereső játék" class="carousel_image">
+                                </li>
+                                <div class="carousel__indicators">
+                                    <label class="carousel__indicator" for="MP"></label>
+                                    <label class="carousel__indicator" for="MQ"></label>
+                                    <label class="carousel__indicator" for="MR"></label>
+                                    <label class="carousel__indicator" for="MS"></label>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
             </section>
-</div>
+        </div>
+
+    <script src="scripts/script.js"></script>
 </body> 
 </html>
