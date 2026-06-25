@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somogyi Benjámin portfolio</title>
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="stylesheet" href="styles/summer.css">
 
     <!-- Google Fonts -->
@@ -20,7 +22,7 @@
 
 </head>
 <body class="alatsi-regular">
-    <div class="header alatsi-regular">
+    <div class="header alatsi-regular animate__animated animate__zoomInDown">
         <span><a href="#Home"><img src="./images/home.png" alt="" class="headerIcon"><span class="headerSub">Home</span></a></span>
         <span><a href="#Tanulmanyok"><img src="./images/studies.png" alt="" class="headerIcon"> <span class="headerSub">Tanulmányok</span></a></span>
         <span><a href="#Projektek"><img src="./images/projects.png" alt="" class="headerIcon"> <span class="headerSub">Projektek</span></a></span>
@@ -28,7 +30,7 @@
 
     </div>
     <div class="container alatsi-regular" id="Home">
-        <div class="Me">
+        <div class="Me animate__animated animate__jackInTheBox">
             <div id="name">Somogyi Benjámin</div>
             <div id="titles">Szoftverfejlesztő és tesztelő</div>
         </div>
@@ -64,7 +66,7 @@
 
                 <div class="description">
                     <div class="descriptionContent">
-                        <div class="school">Széchenyi István Egyetem <div>University of Győr </div></div>
+                        <div class="school">Széchenyi István Egyetem, <div>University of Győr </div></div>
 
                         <div>2025 - Jelenleg</div>
                         <div>MérnökInformatika Bsc</div>
@@ -415,7 +417,7 @@
                     <form id="contactForm" class="alatsi-regular">
                         <input type="email" id="email" class="alatsi-regular" placeholder="Add meg az E-mail címed" required autocomplete="off">
                         <textarea id="message" class="alatsi-regular" placeholder="Ide írd az üzeneted" required></textarea>
-                        <button type="submit" class="alatsi-regular"> <img src="./images/submit.png" alt="" class="headerIcon">Küldés</button>
+                        <button type="submit" class="alatsi-regular"> <img src="./images/submit.png" alt="" class="headerIcon" id="btnIcon"> <span id="btnText" class="">Küldés</span> <div id="sendBtn" class=""></div></button>
 
                     </form>
                     <div id="status"></div>

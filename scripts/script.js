@@ -26,6 +26,12 @@ document.getElementById('contactForm').addEventListener('submit', async function
   const message = document.getElementById('message').value;
   const endpoint = "https://formspree.io/f/meebeeae";
 
+  document.querySelector("#sendBtn").classList.toggle("loader")
+  document.querySelector("#btnText").classList.toggle("hideText")
+  document.querySelector("#btnIcon").classList.toggle("hideText")
+
+  setTimeout(async () => {
+    
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -38,16 +44,29 @@ document.getElementById('contactForm').addEventListener('submit', async function
       document.getElementById('modalMessage').innerText = "Az üzeneted sikeresen elküldted. Hamarosan kapcsolatba lépek veled.";
       document.getElementById('contactForm').reset();
       document.getElementById('thankYouModal').style.display = 'block';
+      document.querySelector("#sendBtn").classList.toggle("loader")
+      document.querySelector("#btnText").classList.toggle("hideText")
+      document.querySelector("#btnIcon").classList.toggle("hideText")
     } else {
       document.getElementById('modalTitle').innerText = "Hiba!";
       document.getElementById('modalMessage').innerText = "Hiba történt a küldés során. Kérlek, próbáld újra!";
       document.getElementById('thankYouModal').style.display = 'block';
+      document.querySelector("#sendBtn").classList.toggle("loader")
+      document.querySelector("#btnText").classList.toggle("hideText")
+      document.querySelector("#btnIcon").classList.toggle("hideText")
     }
   } catch (error) {
     document.getElementById('modalTitle').innerText = "Hiba!";
     document.getElementById('modalMessage').innerText = "Hálózati hiba történt. Ellenőrizd a kapcsolatot.";
     document.getElementById('thankYouModal').style.display = 'block';
+    document.querySelector("#sendBtn").classList.toggle("loader")
+    document.querySelector("#btnText").classList.toggle("hideText")
+    document.querySelector("#btnIcon").classList.toggle("hideText")
   }
+
+  }, 2000);
+
+
 });
 
 const modal = document.getElementById('thankYouModal');
@@ -180,3 +199,25 @@ document.querySelectorAll('.carousel_image').forEach((img) => {
     }, 10000);
   });
 });
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    // If the element is in the viewport
+    if (entry.isIntersecting) {
+      // Add your CSS animation class
+      entry.target.classList.add('animate__animated'); 
+      entry.target.classList.add('animate__zoomIn'); 
+      
+      // Optional: Stop observing once it has animated so it doesn't repeat
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+// 2. Tell the observer which elements to watch
+const hiddenElements = document.querySelectorAll('.contentRight');
+hiddenElements.forEach((el) => observer.observe(el));
+
+const hiddenElements2 = document.querySelectorAll('.contactContainer');
+hiddenElements2.forEach((el) => observer.observe(el));
