@@ -3,7 +3,7 @@
     --generalBorder: 4px solid rgba(255, 255, 255, 0.041);
     --pillBg: rgba(252, 252, 255, 0.068);
     --inputBg: rgba(252, 252, 255, 0.259);
-
+    --selectedSectionBg: rgba(18, 17, 17, 0.29);
 }
 
 html {
@@ -89,7 +89,7 @@ a:focus{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .headerIcon{
@@ -97,6 +97,14 @@ a:focus{
   width: 15%;
   filter: invert(1) brightness(1.2) saturate(1.3);
   color: var(--headerColor);
+}
+
+.selectedSection{
+  border: var(--generalBorder);
+  border-radius: 12px;
+  background-color: var(--selectedSectionBg);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 .headerSub{
@@ -359,6 +367,11 @@ section{
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+}
+
+#btnIcon{
+  transform:rotateZ(-45deg)
 
 }
 

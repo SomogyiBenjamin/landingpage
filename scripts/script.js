@@ -5,6 +5,59 @@ document.addEventListener('DOMContentLoaded', function() {
         carouselNames.add(input.name);
     });
 
+    const navLinks = Array.from(document.querySelectorAll('.header a'));
+    const navSections = navLinks
+        .map(link => {
+            const href = link.getAttribute('href') || '';
+            const targetId = href.replace(/^#/, '');
+            const section = targetId ? document.getElementById(targetId) : null;
+            return { link, section };
+        })
+        .filter(item => item.section);
+
+    const setActiveNavItem = (activeLink) => {
+        navLinks.forEach(link => {
+            const parent = link.parentElement;
+            if (parent) {
+                parent.classList.toggle('selectedSection', link === activeLink);
+            }
+        });
+    };
+
+    const updateActiveNavItem = () => {
+        const offset = window.scrollY + window.innerHeight * 0.35;
+        let activeLink = navLinks[0] || null;
+
+        navSections.forEach(({ link, section }) => {
+            if (section && section.offsetTop <= offset) {
+                activeLink = link;
+            }
+        });
+
+        setActiveNavItem(activeLink);
+    };
+
+    let ticking = false;
+    const handleScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateActiveNavItem();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            setActiveNavItem(link);
+        });
+    });
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    updateActiveNavItem();
 
     carouselNames.forEach(carouselName => {
         const inputs = document.querySelectorAll(`input[name="${carouselName}"]`);
@@ -84,14 +137,12 @@ window.onclick = function(event) {
   }
 }
 
-// Image modal functionality
 const imageModal = document.getElementById('imageModal');
 const imageModalCloseBtn = imageModal.querySelector('.close');
 
 if (imageModalCloseBtn) {
   imageModalCloseBtn.onclick = function() {
     imageModal.style.display = 'none';
-    // Stop rotation when closing
     if (window.modalRotationInterval) {
       clearInterval(window.modalRotationInterval);
       window.modalRotationInterval = null;
@@ -102,7 +153,6 @@ if (imageModalCloseBtn) {
 window.addEventListener('click', function(event) {
   if (event.target == imageModal) {
     imageModal.style.display = 'none';
-    // Stop rotation when closing
     if (window.modalRotationInterval) {
       clearInterval(window.modalRotationInterval);
       window.modalRotationInterval = null;
@@ -110,19 +160,14 @@ window.addEventListener('click', function(event) {
   }
 });
 
-// Add click listeners to carousel images
 document.querySelectorAll('.carousel_image').forEach((img) => {
   img.style.cursor = 'pointer';
   img.addEventListener('click', function() {
-    // Get the parent carousel container
     const parentCarousel = img.closest('ul.carousel');
-    
-    // Get all slides and inputs from the parent carousel
     const slides = parentCarousel.querySelectorAll('.carousel__slide');
     const inputs = parentCarousel.querySelectorAll('.carousel__activator');
     const slideCount = slides.length;
     
-    // Find which input is currently checked
     let checkedIndex = 0;
     inputs.forEach((input, i) => {
       if (input.checked) {
@@ -130,24 +175,18 @@ document.querySelectorAll('.carousel_image').forEach((img) => {
       }
     });
     
-    // Update modal carousel
     const modalCarousel = document.getElementById('modalCarousel');
     
-    // Clear existing slides (keep only inputs and indicators div)
     const existingSlides = modalCarousel.querySelectorAll('.carousel__slide');
     existingSlides.forEach(slide => slide.remove());
     
-    // Clear existing inputs
     const existingInputs = modalCarousel.querySelectorAll('.carousel__activator');
     existingInputs.forEach(input => input.remove());
     
-    // Clear existing indicators
     const existingIndicators = modalCarousel.querySelector('.carousel__indicators');
     if (existingIndicators) existingIndicators.remove();
     
-    // Create new inputs and slides based on the parent carousel
     slides.forEach((slide, index) => {
-      // Create new input
       const newInput = document.createElement('input');
       newInput.className = 'carousel__activator';
       newInput.type = 'radio';
@@ -157,7 +196,6 @@ document.querySelectorAll('.carousel_image').forEach((img) => {
       modalCarousel.appendChild(newInput);
     });
     
-    // Create slides
     slides.forEach((slide, index) => {
       const newSlide = document.createElement('li');
       newSlide.className = 'carousel__slide';
@@ -169,7 +207,6 @@ document.querySelectorAll('.carousel_image').forEach((img) => {
       modalCarousel.appendChild(newSlide);
     });
     
-    // Create indicators
     const indicatorsDiv = document.createElement('div');
     indicatorsDiv.className = 'carousel__indicators';
     for (let i = 0; i < slideCount; i++) {
@@ -180,19 +217,15 @@ document.querySelectorAll('.carousel_image').forEach((img) => {
     }
     modalCarousel.appendChild(indicatorsDiv);
     
-    // Show modal
     imageModal.style.display = 'block';
     
-    // Restart modal carousel auto-rotation
     const newModalInputs = modalCarousel.querySelectorAll(`input[name="carouselModal"]`);
     let currentModalIndex = checkedIndex;
     
-    // Clear any existing rotation interval
     if (window.modalRotationInterval) {
       clearInterval(window.modalRotationInterval);
     }
     
-    // Start new rotation
     window.modalRotationInterval = setInterval(() => {
       currentModalIndex = (currentModalIndex + 1) % newModalInputs.length;
       newModalInputs[currentModalIndex].checked = true;
@@ -203,19 +236,15 @@ document.querySelectorAll('.carousel_image').forEach((img) => {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    // If the element is in the viewport
     if (entry.isIntersecting) {
-      // Add your CSS animation class
       entry.target.classList.add('animate__animated'); 
       entry.target.classList.add('animate__zoomIn'); 
       
-      // Optional: Stop observing once it has animated so it doesn't repeat
       observer.unobserve(entry.target);
     }
   });
 });
 
-// 2. Tell the observer which elements to watch
 const hiddenElements = document.querySelectorAll('.contentRight');
 hiddenElements.forEach((el) => observer.observe(el));
 
